@@ -4,7 +4,7 @@
 
 お前ら、そんなにAngularが嫌いか...
 
-<img src="/resources/images/capt_tl.png" alt="" class="no-frame" />
+<img src="./resources/images/capt_tl.png" alt="" class="no-frame" />
 
 ---
 
@@ -33,7 +33,7 @@ AngularJSに初めて出会ったのは、遡ること3年以上前、2013年春
 
 <a href="https://wacul-ai.com" target="_blank">https://wacul-ai.com</a>
 
-<img src="/resources/images/capt_aia.png" alt="" class="no-frame" />
+<img src="./resources/images/capt_aia.png" alt="" class="no-frame" />
 
 ---
 
@@ -290,7 +290,7 @@ Angularの `ExceptionHanlder` をhook、 <br>
 
 こんな感じ:
 
-<img class="no-frame" src="/resources/images/capt_rollbar.png" alt="">
+<img class="no-frame" src="./resources/images/capt_rollbar.png" alt="">
 
 ---
 
