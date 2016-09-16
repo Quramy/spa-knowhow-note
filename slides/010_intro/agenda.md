@@ -1,6 +1,16 @@
+
+Angular 2 is released!
+
+<img src="resources/images/ng2release.jpg" alt="" class="no-frame">
+
+---
+
+## めでたい
+
+---
+
 ## Agenda
 
-* はじめに
 * SPAで何を作っているのか
-* Angular 1.xでの取り組み
-* Angular 2 への取り組み
+* AngularJS 1.xでの取り組み
+* Angular 2 での取り組み
