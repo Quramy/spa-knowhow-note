@@ -116,6 +116,8 @@ AngularJSといえばscopeとの2 way binding
 
 ### 正直どうでもよい
 
+<p> 今は1 way or 2 way好きな方を選べるし...  </p>
+
 ---
 
 ### むしろCSSのscopeの方が問題
