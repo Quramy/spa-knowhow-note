@@ -1,33 +1,13 @@
-## はじめに
-
----
-
-お前ら、そんなにAngularが嫌いか...
-
-<img src="./resources/images/capt_tl.png" alt="" class="no-frame" />
-
----
-
-### 俺 with Angular
-
-AngularJSに初めて出会ったのは、遡ること3年以上前、2013年春のことであった...
-
----
-
-### 面白くないので以下略
-
----
-
+<!--
 #### 何でAngularやってんの？
 
 <ul class="good">
   <li>元エンプラ系Java屋さんなのでDIには慣れてた</li>
-  <li>Angularの作りがJSFと似てるところも結構あった(phaseが複雑な所とか)</li>
+  <li>Angularの作りがJava Server Facesと何となく似ていた(phaseが複雑な所とか)</li>
 </ul>
+-->
 
----
-
-## SPAで何を作っているのか
+### Angularで何作ってんの？
 
 ---
 
@@ -41,7 +21,7 @@ AngularJSに初めて出会ったのは、遡ること3年以上前、2013年春
 
 <ul class="good">
   <li>Google Analyticsのデータを元にWebサイト解析を行うB2B SaaS</li>
-  <li>登録サイト数: 約6,000(2016.09.01現在)</li>
+  <li>登録サイト数: 約6,000(2016年9月現在)</li>
 </ul>
 
 ---
@@ -49,7 +29,7 @@ AngularJSに初めて出会ったのは、遡ること3年以上前、2013年春
 ### システム構成
 
 <ul class="good">
-  <li>フロントエンド: TypeScript, AngularJS(1.x)</li>
+  <li>フロントエンド: <span style="font-size:1.1em"> TypeScript, AngularJS(1.x) </span> </li>
   <li>バックエンド: golang, mongodb, elastic search</li>
   <li>解析基盤: Scala, Apache Cassandra</li>
 </ul>
@@ -82,11 +62,11 @@ AngularJSに初めて出会ったのは、遡ること3年以上前、2013年春
 
 ---
 
-## We're hiring!
+<img class="no-frame" src="resources/images/hiring.jpg" alt="">
 
-WACULでは <span style="font-size:1.3em">Angular大好き！ DI無いと死ぬ! </span>
+WACULでは <span style="font-size:1.2em">Angular大好き！ DI無いと死ぬ! </span>
  <br>
-っていうエンジニアを随時募集しています。
+っていうエンジニアを募集しています。
 
 ---
 
@@ -94,15 +74,15 @@ WACULでは <span style="font-size:1.3em">Angular大好き！ DI無いと死ぬ!
 
 ---
 
-<ul class="good" style="font-size: 1.7em">
-  <li>Component 指向</li>
+<ul class="good" style="font-size: 1.2em">
+  <li>Component</li>
   <li>コード自動生成</li>
   <li>エラー周り</li>
 </ul>
 
 ---
 
-### Component 指向
+### Component
 
 ---
 
@@ -130,11 +110,19 @@ anuglar.module("my-module").component("xxxYyyZzz", {
 
 ---
 
-Angularのscopeや2 way bindingはどうでもいい。
+AngularJSといえばscopeとの2 way binding
 
-<p style="font-size:larger">
-  むしろCSSのscopeの方がよっぽど問題。
-</p>
+---
+
+### 正直どうでもよい
+
+---
+
+### むしろCSSのscopeの方が問題
+
+Component(Directive)数は100越えてる
+
+どうやってstyle(CSS)を管理する？
 
 ---
 
@@ -168,7 +156,8 @@ Angularのscopeや2 way bindingはどうでもいい。
 
 ---
 
-## class名長ぇわ！
+### class名長ぇわ！
+
 
 ```html
 <!-- xxxYyyZzz.componentのtemplate -->
@@ -181,7 +170,7 @@ Angularのscopeや2 way bindingはどうでもいい。
 
 ---
 
-独自Directive(<a href="https://github.com/ukyo/angular-simple-bem" target="_blank">ukyo/angular-simple-bem</a>)で解決。
+独自Directive(<a href="https://github.com/ukyo/angular-simple-bem" target="_blank">ukyo/angular-simple-bem</a>)で解決
 
 ```html
 <!-- xxxYyyZzz.componentのtemplate -->
@@ -192,7 +181,19 @@ Angularのscopeや2 way bindingはどうでもいい。
 </div>
 ```
 
-って書くと、 `class="xxx-yyy-zzz__header"` に展開してくれる。
+<p>
+<span class="fa fa-arrow-down"></span>
+ &nbsp;E, MをBに付与して展開 &nbsp;
+<span class="fa fa-arrow-down"></span>
+</p>
+
+```html
+<div class="xxx-yyy-zzz">
+  <div class="xxx-yyy-zzz__header">
+    ...
+  </div>
+</div>
+```
 
 ---
 
@@ -200,16 +201,18 @@ Angularのscopeや2 way bindingはどうでもいい。
 
 ---
 
-#### 自動生成 ~Component, etc編~
-
 gulp + <a href="https://www.npmjs.com/package/inquirer" target="_blank">inquirer</a> + <a href="https://mustache.github.io/" target="_blank">mustache</a> を使って
 <br> ComponentやServiceのscaffoldタスクを用意.
 
-例(Componentの場合):
+<img class="no-frame" src="resources/images/capt_gen.png" alt="">
 
-* Component本体の.ts
-* Karma用Componentのspec.ts
+---
+
+Componentの場合、下記が生成される
+
+* Component本体となる.ts
 * Componentに対応するBEMの.scss
+* Karma用のspec.ts
 
 ---
 
@@ -239,7 +242,7 @@ module {{modName}} {
 }
 ```
 
----
+<!--
 
 #### コード自動生成 ~API~
 
@@ -248,11 +251,12 @@ module {{modName}} {
 1. jsonから、TypeScript interfaceコードを生成
 1. HTTPクライアントコードやモックサーバで生成されたinterfaceを利用
 
----
 
 interfaceのコード生成は独自にツールを実装したものの、メンテナンスがしんどい。
 
 今ならswagger使うと思う
+
+-->
 
 ---
 
@@ -316,19 +320,18 @@ Rollbarを選んだ理由：
 
 ---
 
-## Angular2の取り組み
+## Angular 2の取り組み
 
 ---
 
+
+<!--
 ### 心構え編
 
 <ul class="good smaller">
-  <li>「Breaking Changeが多いんだけど」<br><span class="fa fa-arrow-right"></span> まだRCだから許したげて。年内には...!</li>
   <li>「xxxのblog記事読んだけど動かないんですけど...」<br /><span class="fa fa-arrow-right"></span> 本家のAPIリファレンスかソース読んだ方が確実</li>
   <li>「`@Component()`とかキモいんだけど」<br /><span class="fa fa-arrow-right"></span> Class Decoratorsはstage 2だ。慣れろ</li>
 </ul>
-
----
 
 <ul class="good smaller">
   <li>「何かHTTPのI/F大分違うんだけど？」<br /><span class="fa fa-arrow-right"></span> Fetch APIのpolyfillだ。慣れろ</li>
@@ -337,14 +340,62 @@ Rollbarを選んだ理由：
   <li>「Template Syntaxキショいんだけど」<br /><span class="fa fa-arrow-right"></span>そうだね</li>
 </ul>
 
----
+-->
 
-精神論はさておき、Angular2にも取り組んでいます。
+WACULではAngular 2にも取り組んでいます。
 
 <ul class="good smaller">
-  <li>新規のSPAプロジェクトをAngular2で立ち上げ</li>
+  <li>新規のSPAプロジェクトをAngular 2で立ち上げ</li>
   <li>現在はUI Componentの整理中</li>
 </ul>
+
+---
+
+Angular 2の所感:
+
+<ul>
+  <li>書いているコードは別物感が相当強い</li>
+  <li>DIや変更検知等の根本的な思想は1.xと同じ</li>
+  <li>慣れてくるとあまり1.xと2.xの違いは気にならない</li>
+</ul>
+
+---
+
+### ...でもAngularって遅いんじゃない？
+
+---
+
+### ComponentのCompile問題
+
+Angular 2でも、1.xと同様にComponentのテンプレートは実行時にコンパイルされる
+
+---
+
+馬鹿にならないオーバーヘッド
+
+<img class="no-frame" src="resources/images/capt_rtcompile.png" alt="" width="700px">
+
+<p class="smaller">※ Component数: 60程度</p>
+
+---
+
+### Solution: AoT compile
+
+Componentのテンプレートを事前に変換して <br />
+実行時オーバーヘッドを削減する仕組み.
+
+Angularが公式にcompiler CLI(`ngc`)を提供している。
+
+---
+
+#### ngcのイメージ
+
+<img class="no-frame" src="resources/images/ngc_output.png" alt="">
+
+<p class="smaller">
+template(HTML)からはTypeScriptのコードが生成されるため、<br>
+事前にtemplateの記述をチェックすることも可能
+</p>
 
 ---
 
@@ -354,21 +405,11 @@ Rollbarを選んだ理由：
 
 ---
 
-Angular2の今んとこ所感:
-
-<ul>
-  <li>表記は別物感が相当強い</li>
-  <li>DIや変更検知等の根本的な思想は1.xと同じ</li>
-  <li>慣れてくるとあまり1.xと2.xの違いは気にならない</li>
-</ul>
-
----
-
-Angular2で期待していること:
+その他のAngular 2性能改善テーマ:
 
 <ul class="good">
   <li>Lazy module loading</li>
-  <li>Offline pre-compilation(Checking template syntax)</li>
+  <li>Server Side Rendering</li>
   <li class="no-mark">etc...</li>
 </ul>
 
